@@ -22,7 +22,12 @@ ${nonVegOption2}      Pork
 ${vegOption1}
 ${vegOption2}
 
+${addToCartBtn}       Add to Cart
+
 *** Keywords ***
 Select a Meal Plan
     [Arguments]     ${mealPlanType}
     Click Element   ${mealPlanType}
+
+Add Product to Mini Cart
+    Click Button      ${addToCartBtn}

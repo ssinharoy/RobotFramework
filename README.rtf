@@ -1,42 +1,32 @@
 *********************************************************************************************************
-Purpose of this repo is to provide a basic sampling of how RobotFramework tests are typically structured.
-This is meant to act as a conversation starter only for anyone unfamiliar with the Framework.
-Functionality is limited since this has been created for the live/production website
-(so complete checkout and subscription management functionality is not included.
-Neither does this encompass any integrated scenarios - API/Database test automation due to lack of access)
+WORK-IN-PROGRESS!!!
+Purpose of this repo is to build a basic sampling of how RobotFramework tests are typically structured.
+This is meant to act as a sample guide for beginners to try out or as a conversation starter for anyone
+unfamiliar with the Tool.
+Functionality is limited to very basic front-end UI tests since this has been created for a live/production
+website with no access to back-end systems (DB/APIs) or ability to complete an actual end-to-end flow.
 ***********************************************************************************************************
 
-RobotFramework Installation Instructions for MacOS:
-1. Install Homebrew Package Manager
------------------------------------
-https://brew.sh
-
+RobotFramework Installation Instructions for MacOS
+---------------------------------------------------
+1. Install Homebrew Package Manager:  See instructions at:  https://brew.sh
 2. Add Homebrew to your system's PATH environment variable
-----------------------------------------------------------
    a. Open your shell's configuration file:  nano ~/.zshrc
    b. Add Homebrew binary directory to the PATH:  export PATH=/opt/homebrew/bin:$PATH
    c. Save file and exit text editor
    d. Reload the shell configuration:  source ~/.zshrc
    e. Verify homebrew is now in your PATH:  brew --version
-
-3. Install Python
------------------
-brew install python (pip should automatically be installed)
-
-4. Check pip version
---------------------
-pip3 --version
-
-5. Install RobotFramework
--------------------------
-pip3 install robotframework
-
-6. Install SeleniumLibrary (plus any other libraries you want)
---------------------------------------------------------------
-pip3 install robotframework-seleniumlibrary
-
+3. Install Python: brew install python (pip should automatically be installed)
+4. Check pip version: pip3 --version
+5. Install RobotFramework: pip3 install robotframework
+6. Install SeleniumLibrary (plus any other libraries you want): pip3 install robotframework-seleniumlibrary
 7. Install desired Browsers and their associated Selenium Webdrivers
-
 8. Install preferred IDS (PyCharm or VSCode) and Download the Intellibot plugin
-
 9. Create directory to hold all RobotFramework Projects
+
+
+Instructions for running tests in parallel
+-------------------------------------------
+https://docs.robotframework.org/docs/parallel
+Ensure to use the correct version of pip while installing: E.g. pip3 install -U robotframework-pabot
+
