@@ -22,8 +22,8 @@ ${nonVegOption2}      Pork
 ${vegOption1}
 ${vegOption2}
 
-${addToCartBtn}       Add to Cart
+${addToCartBtn}       id = variation-add-to-cart
 
 *** Keywords ***
 Add Product to Mini Cart
-    Click Button      ${addToCartBtn}
+    Run Keyword Until Success    Click Button      ${addToCartBtn}

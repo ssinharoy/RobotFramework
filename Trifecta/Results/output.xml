@@ -1,33 +1,225 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.5 on darwin)" generated="20231007 13:54:20.632" rpa="false" schemaversion="4">
-<suite id="s1" name="ProdSampleTests" source="/Users/sreyasinharoy/Documents/GitHub/RobotFramework/TestScenarios/ProdSampleTests.robot">
-<test id="s1-t1" name="This is a sample checkout test case" line="7">
-<kw name="Open Browser">
-<arg>https://www.trifectanutrition.com</arg>
-<arg>Chrome</arg>
-<msg timestamp="20231007 13:54:20.640" level="FAIL">No keyword with name 'Open Browser' found.</msg>
-<status status="FAIL" starttime="20231007 13:54:20.640" endtime="20231007 13:54:20.640"/>
+<robot generator="Robot 6.1.1 (Python 3.11.5 on darwin)" generated="20231007 16:57:44.720" rpa="false" schemaversion="4">
+<suite id="s1" name="SampleTests" source="/Users/sreyasinharoy/Documents/GitHub/RobotFramework/Trifecta/TestScenarios/SampleTests.robot">
+<test id="s1-t1" name="Add a Meal Plan to Cart and Complete Checkout" line="8">
+<kw name="Open Browser" library="SeleniumLibrary" type="SETUP">
+<arg>${HOMEPAGE_URL}</arg>
+<arg>${BROWSER_TYPE}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231007 16:57:44.802" level="INFO">Opening browser 'Chrome' to base url 'https://www.trifectanutrition.com'.</msg>
+<status status="PASS" starttime="20231007 16:57:44.801" endtime="20231007 16:57:49.589"/>
 </kw>
-<doc>This is a very basic sample test case to demonstrate RobotFramework functionality
-Test Case adds an item to shopping cart and navigates to the last page of checkout on the
-Trifecta production website</doc>
-<tag>Regression</tag>
-<status status="FAIL" starttime="20231007 13:54:20.639" endtime="20231007 13:54:20.640">No keyword with name 'Open Browser' found.</status>
+<kw name="Add a Meal Plan to Cart from SHOP" library="ShoppingExperience">
+<arg>${ketoMealPlan}</arg>
+<kw name="Click Meals Link on Top Nav" library="TopNav">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${mealsNavLink}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231007 16:57:49.590" level="INFO">Clicking element 'xpath = //*[@id="trifecta-header"]//a[contains(text(),'Meals')]'.</msg>
+<status status="PASS" starttime="20231007 16:57:49.590" endtime="20231007 16:57:49.642"/>
+</kw>
+<status status="PASS" starttime="20231007 16:57:49.590" endtime="20231007 16:57:49.642"/>
+</kw>
+<kw name="Select a Meal Plan" library="ProductSelector">
+<arg>${mealPlanType}</arg>
+<kw name="Run Keyword Until Success" library="Initialization">
+<arg>Click Element</arg>
+<arg>${mealPlanType}</arg>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>20s</arg>
+<arg>5s</arg>
+<arg>@{keyword}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath \= //*[@id\="main"]//a[contains(text(),'Keto Meal Plan')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231007 16:57:49.645" level="INFO">Clicking element 'xpath = //*[@id="main"]//a[contains(text(),'Keto Meal Plan')]'.</msg>
+<msg timestamp="20231007 16:57:52.551" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-49.png"&gt;&lt;img src="selenium-screenshot-49.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231007 16:57:52.551" level="FAIL">Element with locator 'xpath = //*[@id="main"]//a[contains(text(),'Keto Meal Plan')]' not found.</msg>
+<status status="FAIL" starttime="20231007 16:57:49.644" endtime="20231007 16:57:52.554"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath \= //*[@id\="main"]//a[contains(text(),'Keto Meal Plan')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231007 16:57:57.558" level="INFO">Clicking element 'xpath = //*[@id="main"]//a[contains(text(),'Keto Meal Plan')]'.</msg>
+<msg timestamp="20231007 16:57:58.950" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-50.png"&gt;&lt;img src="selenium-screenshot-50.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231007 16:57:58.950" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (321, 1044)
+  (Session info: chrome=117.0.5938.149)
+Stacktrace:
+0   chromedriver                        0x0000000103072d68 chromedriver + 4337000
+1   chromedriver                        0x000000010306ade4 chromedriver + 4304356
+2   chromedriver                        0x0000000102c97a5c chromedriver + 293468
+3   chromedriver                        0x0000000102ce375c chromedriver + 603996
+4   chromedriver                        0x0000000102ce1824 chromedriver + 596004
+5   chromedriver                        0x0000000102cdf44c chromedriver + 586828
+6   chromedriver                        0x0000000102cde4c4 chromedriver + 582852
+7   chromedriver                        0x0000000102cd2938 chromedriver + 534840
+8   chromedriver                        0x0000000102cd2200 chromedriver + 532992
+9   chromedriver                        0x0000000102d17908 chromedriver + 817416
+10  chromedriver                        0x0000000102cd0a5c chromedriver + 526940
+11  chromedriver                        0x0000000102cd1908 chromedriver + 530696
+12  chromedriver                        0x0000000103038db4 chromedriver + 4099508
+13  chromedriver                        0x000000010303d270 chromedriver + 4117104
+14  chromedriver                        0x00000001030434fc chromedriver + 4142332
+15  chromedriver                        0x000000010303dd70 chromedriver + 4119920
+16  chromedriver                        0x0000000103015a44 chromedriver + 3955268
+17  chromedriver                        0x000000010305aa18 chromedriver + 4237848
+18  chromedriver                        0x000000010305ab94 chromedriver + 4238228
+19  chromedriver                        0x000000010306aa5c chromedriver + 4303452
+20  libsystem_pthread.dylib             0x000000018f6bb034 _pthread_start + 136
+21  libsystem_pthread.dylib             0x000000018f6b5e3c thread_start + 8
+</msg>
+<status status="FAIL" starttime="20231007 16:57:57.558" endtime="20231007 16:57:58.951"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath \= //*[@id\="main"]//a[contains(text(),'Keto Meal Plan')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231007 16:58:03.955" level="INFO">Clicking element 'xpath = //*[@id="main"]//a[contains(text(),'Keto Meal Plan')]'.</msg>
+<status status="PASS" starttime="20231007 16:58:03.955" endtime="20231007 16:58:03.993"/>
+</kw>
+<status status="PASS" starttime="20231007 16:57:49.643" endtime="20231007 16:58:03.993"/>
+</kw>
+<status status="PASS" starttime="20231007 16:57:49.643" endtime="20231007 16:58:03.993"/>
+</kw>
+<status status="PASS" starttime="20231007 16:57:49.642" endtime="20231007 16:58:03.993"/>
+</kw>
+<kw name="Add Product to Mini Cart" library="ProductDetail">
+<kw name="Run Keyword Until Success" library="Initialization">
+<arg>Click Button</arg>
+<arg>${addToCartBtn}</arg>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>20s</arg>
+<arg>5s</arg>
+<arg>@{keyword}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id \= variation-add-to-cart</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231007 16:58:03.995" level="INFO">Clicking button 'id = variation-add-to-cart'.</msg>
+<msg timestamp="20231007 16:58:07.825" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-51.png"&gt;&lt;img src="selenium-screenshot-51.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231007 16:58:07.825" level="FAIL">Button with locator 'id = variation-add-to-cart' not found.</msg>
+<status status="FAIL" starttime="20231007 16:58:03.994" endtime="20231007 16:58:07.826"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id \= variation-add-to-cart</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231007 16:58:12.828" level="INFO">Clicking button 'id = variation-add-to-cart'.</msg>
+<msg timestamp="20231007 16:58:14.148" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-52.png"&gt;&lt;img src="selenium-screenshot-52.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231007 16:58:14.148" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (856, 1181)
+  (Session info: chrome=117.0.5938.149)
+Stacktrace:
+0   chromedriver                        0x0000000103072d68 chromedriver + 4337000
+1   chromedriver                        0x000000010306ade4 chromedriver + 4304356
+2   chromedriver                        0x0000000102c97a5c chromedriver + 293468
+3   chromedriver                        0x0000000102ce375c chromedriver + 603996
+4   chromedriver                        0x0000000102ce1824 chromedriver + 596004
+5   chromedriver                        0x0000000102cdf44c chromedriver + 586828
+6   chromedriver                        0x0000000102cde4c4 chromedriver + 582852
+7   chromedriver                        0x0000000102cd2938 chromedriver + 534840
+8   chromedriver                        0x0000000102cd2200 chromedriver + 532992
+9   chromedriver                        0x0000000102d17908 chromedriver + 817416
+10  chromedriver                        0x0000000102cd0a5c chromedriver + 526940
+11  chromedriver                        0x0000000102cd1908 chromedriver + 530696
+12  chromedriver                        0x0000000103038db4 chromedriver + 4099508
+13  chromedriver                        0x000000010303d270 chromedriver + 4117104
+14  chromedriver                        0x00000001030434fc chromedriver + 4142332
+15  chromedriver                        0x000000010303dd70 chromedriver + 4119920
+16  chromedriver                        0x0000000103015a44 chromedriver + 3955268
+17  chromedriver                        0x000000010305aa18 chromedriver + 4237848
+18  chromedriver                        0x000000010305ab94 chromedriver + 4238228
+19  chromedriver                        0x000000010306aa5c chromedriver + 4303452
+20  libsystem_pthread.dylib             0x000000018f6bb034 _pthread_start + 136
+21  libsystem_pthread.dylib             0x000000018f6b5e3c thread_start + 8
+</msg>
+<status status="FAIL" starttime="20231007 16:58:12.828" endtime="20231007 16:58:14.149"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id \= variation-add-to-cart</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231007 16:58:19.153" level="INFO">Clicking button 'id = variation-add-to-cart'.</msg>
+<status status="PASS" starttime="20231007 16:58:19.152" endtime="20231007 16:58:19.209"/>
+</kw>
+<status status="PASS" starttime="20231007 16:58:03.993" endtime="20231007 16:58:19.209"/>
+</kw>
+<status status="PASS" starttime="20231007 16:58:03.993" endtime="20231007 16:58:19.209"/>
+</kw>
+<status status="PASS" starttime="20231007 16:58:03.993" endtime="20231007 16:58:19.209"/>
+</kw>
+<status status="PASS" starttime="20231007 16:57:49.590" endtime="20231007 16:58:19.209"/>
+</kw>
+<kw name="Checkout with Items in Mini Cart" library="ShoppingExperience">
+<kw name="Click Checkout Button on Mini Cart" library="MiniCart">
+<kw name="Run Keyword Until Success" library="Initialization">
+<arg>Click Button</arg>
+<arg>${checkoutBtn}</arg>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>20s</arg>
+<arg>5s</arg>
+<arg>@{keyword}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Checkout</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231007 16:58:19.212" level="INFO">Clicking button 'Checkout'.</msg>
+<msg timestamp="20231007 16:58:19.500" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-53.png"&gt;&lt;img src="selenium-screenshot-53.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231007 16:58:19.500" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=117.0.5938.149)
+Stacktrace:
+0   chromedriver                        0x0000000103072d68 chromedriver + 4337000
+1   chromedriver                        0x000000010306ade4 chromedriver + 4304356
+2   chromedriver                        0x0000000102c978b4 chromedriver + 293044
+3   chromedriver                        0x0000000102cde240 chromedriver + 582208
+4   chromedriver                        0x0000000102cd2938 chromedriver + 534840
+5   chromedriver                        0x0000000102cd2200 chromedriver + 532992
+6   chromedriver                        0x0000000102d17908 chromedriver + 817416
+7   chromedriver                        0x0000000102cd0a5c chromedriver + 526940
+8   chromedriver                        0x0000000102cd1908 chromedriver + 530696
+9   chromedriver                        0x0000000103038db4 chromedriver + 4099508
+10  chromedriver                        0x000000010303d270 chromedriver + 4117104
+11  chromedriver                        0x00000001030434fc chromedriver + 4142332
+12  chromedriver                        0x000000010303dd70 chromedriver + 4119920
+13  chromedriver                        0x0000000103015a44 chromedriver + 3955268
+14  chromedriver                        0x000000010305aa18 chromedriver + 4237848
+15  chromedriver                        0x000000010305ab94 chromedriver + 4238228
+16  chromedriver                        0x000000010306aa5c chromedriver + 4303452
+17  libsystem_pthread.dylib             0x000000018f6bb034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018f6b5e3c thread_start + 8
+</msg>
+<status status="FAIL" starttime="20231007 16:58:19.211" endtime="20231007 16:58:19.501"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Checkout</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231007 16:58:24.503" level="INFO">Clicking button 'Checkout'.</msg>
+<status status="PASS" starttime="20231007 16:58:24.503" endtime="20231007 16:58:26.403"/>
+</kw>
+<status status="PASS" starttime="20231007 16:58:19.210" endtime="20231007 16:58:26.403"/>
+</kw>
+<status status="PASS" starttime="20231007 16:58:19.210" endtime="20231007 16:58:26.403"/>
+</kw>
+<status status="PASS" starttime="20231007 16:58:19.210" endtime="20231007 16:58:26.403"/>
+</kw>
+<status status="PASS" starttime="20231007 16:58:19.210" endtime="20231007 16:58:26.403"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231007 16:58:26.404" endtime="20231007 16:58:26.516"/>
+</kw>
+<status status="PASS" starttime="20231007 16:57:44.801" endtime="20231007 16:58:26.516"/>
 </test>
-<status status="FAIL" starttime="20231007 13:54:20.633" endtime="20231007 13:54:20.640"/>
+<status status="PASS" starttime="20231007 16:57:44.721" endtime="20231007 16:58:26.516"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">Regression</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="ProdSampleTests">ProdSampleTests</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="SampleTests">SampleTests</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20231007 13:54:20.639" level="ERROR">Error in file '/Users/sreyasinharoy/Documents/GitHub/RobotFramework/TestScenarios/ProdSampleTests.robot' on line 2: Resource file 'Resources/Common/Settings.robot' does not exist.</msg>
+<msg timestamp="20231007 16:57:44.797" level="WARN">Imported resource file '/Users/sreyasinharoy/Documents/GitHub/RobotFramework/Trifecta/Resources/Common/TestData.robot' is empty.</msg>
 </errors>
 </robot>

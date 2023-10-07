@@ -6,4 +6,4 @@ ${checkoutBtn}       Checkout
 
 *** Keywords ***
 Click Checkout Button on Mini Cart
-    Click Button    ${checkoutBtn}
+    Run Keyword Until Success    Click Button    ${checkoutBtn}

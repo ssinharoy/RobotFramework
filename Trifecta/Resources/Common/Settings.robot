@@ -19,7 +19,7 @@ Library      SeleniumLibrary
 #Library 	  XML
 
 Resource    Initialization.robot
-Resource     TestData.robot
+Resource    TestData.robot
 
 Resource    ../PageObjects/TopNav.robot
 Resource    ../PageObjects/ProductSelector.robot

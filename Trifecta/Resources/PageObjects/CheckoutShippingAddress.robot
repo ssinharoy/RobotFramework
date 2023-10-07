@@ -13,5 +13,3 @@ ${shippingPhoneField}           id = billing_phone
 ${shippingContinueBtn}          id = proceed-to-step-4
 
 *** Keywords ***
-Click Checkout Button on Mini Cart
-    Click Button    ${checkoutBtn}
